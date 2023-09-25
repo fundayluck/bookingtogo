@@ -21,10 +21,24 @@ const MainNavigation = () => {
                 <Stack.Screen
                     name='detail'
                     component={DetailPayment}
+                    options={{
+                        headerTitle: 'payment detail',
+                        headerStyle: { backgroundColor: '#335997' },
+                        headerTitleStyle: { color: 'white' },
+                        headerTitleAlign: 'center',
+                        headerTintColor: 'white'
+                    }}
                 />
                 <Stack.Screen
                     name='list'
                     component={GuestList}
+                    options={{
+                        headerTitle: 'Tambah Data Tamu',
+                        headerStyle: { backgroundColor: '#335997' },
+                        headerTitleStyle: { color: 'white' },
+                        headerTitleAlign: 'center',
+                        headerTintColor: 'white'
+                    }}
                 />
             </Stack.Navigator>
         </NavigationContainer>
