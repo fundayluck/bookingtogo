@@ -22,7 +22,7 @@ const MainNavigation = () => {
                     name='detail'
                     component={DetailPayment}
                     options={{
-                        headerTitle: 'payment detail',
+                        headerTitle: 'Payment Details',
                         headerStyle: { backgroundColor: '#335997' },
                         headerTitleStyle: { color: 'white' },
                         headerTitleAlign: 'center',
