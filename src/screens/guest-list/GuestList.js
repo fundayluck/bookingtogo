@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react'
 import DropDownPicker from 'react-native-dropdown-picker';
 import { Context } from '../../context/GuestContext';
 import Icon from 'react-native-vector-icons/AntDesign'
+import { WIDTH } from '../../components/Dimension';
 
 const GuestList = ({ navigation }) => {
     const [items, setItems] = useState([
@@ -27,7 +28,7 @@ const GuestList = ({ navigation }) => {
                 <View
                     style={{
                         flexDirection: 'row',
-                        width: 100,
+                        width: WIDTH * 0.23,
                         marginVertical: 10,
                         justifyContent: 'space-between',
                         marginHorizontal: 15,
@@ -43,7 +44,7 @@ const GuestList = ({ navigation }) => {
                         setItems={setItems}
                     />
                     <Text
-                        style={{ backgroundColor: '#FFFFFF', borderWidth: 1, padding: 15, width: 200, marginLeft: 10, borderRadius: 10, marginRight: 10 }}
+                        style={{ backgroundColor: '#FFFFFF', borderWidth: 1, padding: 15, width: WIDTH * 0.47, marginLeft: 10, borderRadius: 10, marginRight: 10 }}
                     >{item.name}</Text>
                     <TouchableOpacity style={{ alignSelf: 'center' }} onPress={() => navigation.navigate('edit-list', item.id)}>
                         <Icon name='edit' size={25} style={{ alignSelf: 'center', marginRight: 10 }} />

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Image, ActivityIndicator } from 'react-native'
 import moment from 'moment'
-import Icon from 'react-native-vector-icons/AntDesign'
+import { HEIGHT } from './Dimension'
 
 const OrderDetails = ({ data, loading }) => {
     return (
@@ -61,7 +61,7 @@ const OrderDetails = ({ data, loading }) => {
                 style={{
                     flexDirection: 'row',
                     justifyContent: 'space-between',
-                    marginVertical: 10
+                    marginVertical: HEIGHT * 0.01
                 }}
             >
                 <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 17 }}>Check-In</Text>
