@@ -46,5 +46,5 @@ const editGuestList = (dispatch) => {
 export const { Context, Provider } = createDataContext(
     guestReducer,
     { addGuestList, deleteGuestList, editGuestList },
-    []
+    [{ id: 1, name: 'Jhon Doe', gender: 'male' }, { id: 2, name: 'Dorie Doe', gender: 'female' }]
 )

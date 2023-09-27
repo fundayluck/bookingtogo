@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, ActivityIndicator } from 'react-native'
 import moment from 'moment'
+import Icon from 'react-native-vector-icons/AntDesign'
 
-const OrderDetails = ({ data }) => {
+const OrderDetails = ({ data, loading }) => {
     return (
         <View
             style={{
@@ -29,15 +30,27 @@ const OrderDetails = ({ data }) => {
                     alignItems: 'center'
                 }}
             >
-                <Image
-                    style={{
-                        width: 70,
-                        height: 70,
-                        margin: 10,
-                        borderRadius: 10
-                    }}
-                    source={{ uri: data?.chosen_hotel_detail?.images[0]?.url }}
-                />
+                {loading ?
+                    <ActivityIndicator
+                        size={70}
+                        style={{
+                            width: 70,
+                            height: 70,
+                            margin: 10,
+                            borderRadius: 10,
+
+                        }}
+                        name="loading1" />
+                    : <Image
+                        style={{
+                            width: 70,
+                            height: 70,
+                            margin: 10,
+                            borderRadius: 10
+                        }}
+                        source={{ uri: data?.chosen_hotel_detail?.images[0]?.url }}
+                    />
+                }
                 <View>
                     <Text style={{ color: '#335997', fontWeight: 'bold' }}>{data?.chosen_hotel_detail?.hotel_name}</Text>
                     <Text>{data?.chosen_hotel_room?.room_name}</Text>

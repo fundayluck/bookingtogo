@@ -11,15 +11,18 @@ import { Context } from '../../context/GuestContext'
 
 const DetailPayment = ({ navigation }) => {
     const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
+    console.log(loading);
     const [isSelected, setIsSelected] = useState([
-        { id: 1, value: true, name: "Saya memesan untuk sendiri", selected: true },
-        { id: 2, value: false, name: "Saya Memesan untuk orang lain", selected: false }
+        { id: 1, value: true, name: "Saya memesan untuk sendiri", selected: false },
+        { id: 2, value: false, name: "Saya Memesan untuk orang lain", selected: true }
     ]);
 
     const { state } = useContext(Context)
 
     useEffect(() => {
         const getData = async () => {
+            setLoading(true)
             try {
                 const res = await axios.get('https://parseapi.back4app.com/classes/hotel/bVonXoSUHK', {
                     headers: {
@@ -28,8 +31,10 @@ const DetailPayment = ({ navigation }) => {
                     }
                 })
                 setData(res?.data?.chosen_hotel.data?.get_chosen_hotel)
+                setLoading(false)
             } catch (error) {
                 console.log(error);
+
             }
         }
         getData()
@@ -51,7 +56,7 @@ const DetailPayment = ({ navigation }) => {
                 <HeadTag number='2' title='Pembayaran' opacity={0.3} />
             </View>
             <Divider />
-            <OrderDetails data={data} />
+            <OrderDetails data={data} loading={loading} />
             <Divider />
             <OrdererDetails isSelected={isSelected} setIsSelected={setIsSelected} />
             {
