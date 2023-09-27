@@ -1,22 +1,22 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import React, { useContext, useEffect, useState } from 'react'
+import { View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
 import HeadTag from '../../components/HeadTag'
 import Divider from '../../components/Divider'
 import OrderDetails from '../../components/OrderDetails'
 import OrdererDetails from '../../components/OrdererDetails'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import dummyData from '../../components/dummyData'
+import { Context } from '../../context/GuestContext'
 
 
 const DetailPayment = ({ navigation }) => {
     const [data, setData] = useState([])
     const [isSelected, setIsSelected] = useState([
-        { id: 1, value: true, name: "Saya memesan untuk sendiri", selected: false },
-        { id: 2, value: false, name: "Saya Memesan untuk orang lain", selected: true }
+        { id: 1, value: true, name: "Saya memesan untuk sendiri", selected: true },
+        { id: 2, value: false, name: "Saya Memesan untuk orang lain", selected: false }
     ]);
-    const [guestList, setGuestList] = useState(dummyData)
-    console.log(guestList);
+
+    const { state } = useContext(Context)
 
     useEffect(() => {
         const getData = async () => {
@@ -36,7 +36,7 @@ const DetailPayment = ({ navigation }) => {
     }, [])
 
     return (
-        <View>
+        <ScrollView>
             <View
                 style={{
                     flexDirection: 'row',
@@ -59,7 +59,8 @@ const DetailPayment = ({ navigation }) => {
                     (
                         <View
                             style={{
-                                paddingHorizontal: 18
+                                paddingHorizontal: 18,
+                                marginBottom: 15
                             }}
                         >
                             <Text
@@ -72,7 +73,7 @@ const DetailPayment = ({ navigation }) => {
                             >
                                 Data Tamu
                             </Text>
-                            {guestList.map((item, index) =>
+                            {state ? state.map((item) =>
                                 <View
                                     style={{
                                         borderWidth: 1,
@@ -83,6 +84,7 @@ const DetailPayment = ({ navigation }) => {
                                         padding: 10,
                                         marginVertical: 5
                                     }}
+                                    key={item.id}
                                 >
                                     <Icon name={item.gender === "male" ? "person" : "person-2"} size={25} color="black" />
                                     <View
@@ -94,11 +96,9 @@ const DetailPayment = ({ navigation }) => {
                                         <Text style={{ fontWeight: 'bold', color: 'black', fontSize: 18 }}>{item.name}</Text>
                                     </View>
                                 </View>
-                            )}
+                            ) : []}
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('list', {
-                                    guestList, setGuestList
-                                })}
+                                onPress={() => navigation.navigate('list')}
                             >
                                 <Text
                                     style={{
@@ -112,7 +112,7 @@ const DetailPayment = ({ navigation }) => {
                     ) : null
 
             }
-        </View>
+        </ScrollView>
     )
 }
 

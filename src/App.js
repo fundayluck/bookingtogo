@@ -1,9 +1,11 @@
 import MainNavigation from "./navigation/MainNavigation"
-
+import { Provider } from "./context/GuestContext"
 
 const App = () => {
   return (
-    <MainNavigation />
+    <Provider>
+      <MainNavigation />
+    </Provider>
   )
 }
 
