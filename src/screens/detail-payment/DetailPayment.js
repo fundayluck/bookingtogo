@@ -12,7 +12,6 @@ import { Context } from '../../context/GuestContext'
 const DetailPayment = ({ navigation }) => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
-    console.log(loading);
     const [isSelected, setIsSelected] = useState([
         { id: 1, value: true, name: "Saya memesan untuk sendiri", selected: false },
         { id: 2, value: false, name: "Saya Memesan untuk orang lain", selected: true }
