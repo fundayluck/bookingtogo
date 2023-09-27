@@ -1,5 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import { HEIGHT, WIDTH } from './Dimension'
 
 const HeadTag = ({ number, title, opacity }) => {
     return (
@@ -14,17 +15,17 @@ const HeadTag = ({ number, title, opacity }) => {
                 style={{
                     backgroundColor: '#305D97',
                     borderWidth: 0,
-                    paddingHorizontal: 8,
-                    paddingVertical: 3,
-                    marginRight: 10,
+                    paddingHorizontal: WIDTH * 0.023,
+                    paddingVertical: HEIGHT * 0.005,
+                    marginRight: WIDTH * 0.01,
                     color: 'white',
                     borderRadius: 25,
-                    fontSize: 12,
+                    fontSize: 10,
                 }}
             >{number}</Text>
             <Text
                 style={{
-                    fontSize: 15,
+                    fontSize: 13,
                     fontWeight: 'bold',
                     color: 'black'
                 }}

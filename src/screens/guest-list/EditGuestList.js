@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { View, TextInput, Button, TouchableOpacity, Text } from 'react-native'
 import { Context } from '../../context/GuestContext'
 import DropDownPicker from 'react-native-dropdown-picker'
+import { WIDTH } from '../../components/Dimension'
 
 const EditGuestList = ({ route, navigation }) => {
     const { state, editGuestList } = useContext(Context)
@@ -27,7 +28,7 @@ const EditGuestList = ({ route, navigation }) => {
             <View
                 style={{
                     flexDirection: 'row',
-                    width: 150,
+                    width: WIDTH * 0.23,
                     marginVertical: 10,
                     justifyContent: 'space-between',
                     marginHorizontal: 30,
@@ -48,7 +49,7 @@ const EditGuestList = ({ route, navigation }) => {
                         backgroundColor: '#FFFFFF',
                         borderWidth: 1,
                         padding: 15,
-                        width: 190,
+                        width: WIDTH * 0.57,
                         height: 50,
                         marginLeft: 10,
                         borderRadius: 10,

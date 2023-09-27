@@ -53,8 +53,8 @@ const OrderDetails = ({ data, loading }) => {
                 }
                 <View>
                     <Text style={{ color: '#335997', fontWeight: 'bold' }}>{data?.chosen_hotel_detail?.hotel_name}</Text>
-                    <Text>{data?.chosen_hotel_room?.room_name}</Text>
-                    <Text>{data?.chosen_hotel_params?.total_room} Kamar &#183; Quardruple &#183; {data?.chosen_hotel_params?.guest_adult} Tamu &#183; 10 Malam</Text>
+                    <Text style={{}}>{data?.chosen_hotel_room?.room_name}</Text>
+                    <Text style={{ fontSize: 11 }}>{data?.chosen_hotel_params?.total_room} Kamar &#183; Quardruple &#183; {data?.chosen_hotel_params?.guest_adult} Tamu &#183; 10 Malam</Text>
                 </View>
             </View>
             <View
