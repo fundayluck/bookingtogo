@@ -1,5 +1,5 @@
-import { View, Text, TouchableOpacity, TextInput, Button } from 'react-native'
-import React, { useContext, useEffect, useState } from 'react'
+import { View, Text, TouchableOpacity } from 'react-native'
+import React, { useContext, useState } from 'react'
 import DropDownPicker from 'react-native-dropdown-picker';
 import { Context } from '../../context/GuestContext';
 import Icon from 'react-native-vector-icons/AntDesign'

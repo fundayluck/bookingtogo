@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { View, Text, TextInput, Button } from 'react-native'
+import { View, TextInput, Button } from 'react-native'
 import { Context } from '../../context/GuestContext'
 import DropDownPicker from 'react-native-dropdown-picker'
 
