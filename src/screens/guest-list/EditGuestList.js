@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { View, TextInput, Button } from 'react-native'
+import { View, TextInput, Button, TouchableOpacity, Text } from 'react-native'
 import { Context } from '../../context/GuestContext'
 import DropDownPicker from 'react-native-dropdown-picker'
 
@@ -23,34 +23,60 @@ const EditGuestList = ({ route, navigation }) => {
     };
 
     return (
-        <View>
-            <DropDownPicker
-                value={gender}
-                setValue={setGender}
-                items={items}
-                onOpen={() => handleDropdownOpen(guestList.id, true)}
-                onClose={() => handleDropdownOpen(guestList.id, false)}
-                setItems={setItems}
-                open={dropdownOpen[guestList.id]}
-            />
-            <TextInput
+        <>
+            <View
                 style={{
-                    backgroundColor: '#FFFFFF',
-                    borderWidth: 1,
-                    padding: 15,
-                    width: 200,
-                    marginLeft: 10,
-                    borderRadius: 10,
-                    marginRight: 10
+                    flexDirection: 'row',
+                    width: 150,
+                    marginVertical: 10,
+                    justifyContent: 'space-between',
+                    marginHorizontal: 30,
+                    alignContent: 'center'
                 }}
-                value={name}
-                onChangeText={text => setName(text)}
-            />
-            <Button title='Edit' onPress={() => {
-                editGuestList(id, name, gender)
-                navigation.navigate('list')
-            }} />
-        </View>
+            >
+                <DropDownPicker
+                    value={gender}
+                    setValue={setGender}
+                    items={items}
+                    onOpen={() => handleDropdownOpen(guestList.id, true)}
+                    onClose={() => handleDropdownOpen(guestList.id, false)}
+                    setItems={setItems}
+                    open={dropdownOpen[guestList.id]}
+                />
+                <TextInput
+                    style={{
+                        backgroundColor: '#FFFFFF',
+                        borderWidth: 1,
+                        padding: 15,
+                        width: 190,
+                        height: 50,
+                        marginLeft: 10,
+                        borderRadius: 10,
+                        marginRight: 10
+                    }}
+                    value={name}
+                    onChangeText={text => setName(text)}
+                />
+            </View>
+            <TouchableOpacity
+                onPress={() => {
+                    editGuestList(id, name, gender)
+                    navigation.navigate('list')
+                }}
+                style={{
+                    height: 50,
+                    backgroundColor: '#F9823C',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 10,
+                    marginHorizontal: 30,
+                }}
+            >
+                <Text
+
+                >Edit</Text>
+            </TouchableOpacity>
+        </>
     )
 }
 
