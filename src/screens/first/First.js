@@ -11,7 +11,7 @@ const First = ({ navigation }) => {
             }}
         >
             <Button
-                title='book'
+                title='Request'
                 onPress={() => navigation.navigate('detail')}
             />
         </View>
